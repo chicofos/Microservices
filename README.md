@@ -1,2 +1,2 @@
 # Microservices
-Microservices with nodejs using microjs
+Microservices architecture with node/express, docker, swagger, react
