@@ -13,8 +13,8 @@ router.get('/users', (req, res) => {
         if(err){
             res.render('error');
         }
-
-        res.render('users', { users: users });
+        else
+            res.render('users', { users: users });
     })    
     
 });
