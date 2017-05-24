@@ -12,13 +12,10 @@ exports.CreateUser = (req, callback) => {
         admin : req.body.admin ? req.body.admin : false
     });
 
-    usr.save()
-        .then((err) => {
-            callback(err);
-        })
-        .catch((error) => {
-            callback('Something went wrong')
-        });
+    usr.save((err) =>{
+        if(err) callback(err);
+            callback(null, 'User Successfully Saved');  
+    })
 }
 
 exports.Authenticate = (req, callback) => {
@@ -56,4 +53,12 @@ exports.Authenticate = (req, callback) => {
             }
         }
     });
+}
+
+exports.GetUsers = (callback) => {
+   User.find({}, function(err, users){
+      if(err) callback(err);
+      callback(null, users);
+   })
+       
 }
