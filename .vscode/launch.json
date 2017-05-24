@@ -6,6 +6,12 @@
             "request": "launch",
             "name": "Launch Users Service",
             "program": "${workspaceRoot}/services/server/app.js"
+        },
+         {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Web Interface",
+            "program": "${workspaceRoot}/services/web/app.js"
         }
     ]
 }
