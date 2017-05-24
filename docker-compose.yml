@@ -1,5 +1,9 @@
 version: '2.1'
 
+networks:
+  isolation-network:
+    driver: bridge
+
 services:
 # ======================  USER SERVICE ====================
   users-service:
@@ -10,6 +14,8 @@ services:
       - './services/users/package.json:/usr/src/package.json'
     ports:
       - '3000:3000' # expose ports - HOST:CONTAINER
+    networks:
+      - isolation-network
 # ======================  WEB SERVICE ====================
   web-service:
     container_name: web-service
@@ -22,6 +28,6 @@ services:
     depends_on:
       users-service:
         condition: service_started
-    links:
-      - users-service
+    networks:
+      - isolation-network
 # ======================  X SERVICE ====================
