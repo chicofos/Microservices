@@ -1,5 +1,5 @@
 <% include header.html %>
-<br><br>
+<br><br><br><br>
 <body id="page-top" class="index">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -11,15 +11,30 @@
     </nav>
     <header>
         <div class="container">
-          <div >
-            <span class="title"><h1>Users</h1></span>
-            <ul id="songs" class="list-unstyled">
-              <% users.forEach(function(song){ %>
-                <li><%= song.name %> </a></li>
-              <% }) %>
-            </ul>
-          </div>
+            <span class="title"><h1>List of Users</h1></span>
+            <br>
+            <table class="table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Admin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user,i){ %>
+                        <tr>
+                            <td><%= user.name %></td>
+                            <td><%= user.password %></td>
+                            <td><%= user.admin %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
         </div>
     </header>
+
+    
+    
 </body>
 </html>

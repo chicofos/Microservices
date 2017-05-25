@@ -8,11 +8,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-
     UserService.GetUsers(function(err, users){
-        if(err){
+        if(err)
             res.render('error');
-        }
         else
             res.render('users', { users: users });
     })    
